@@ -8,6 +8,3 @@ INNER JOIN DEPARTMENT dpt ON em.departmentId  = dpt.id)
 select Department, Employee, salary 
 FROM temp
 WHERE sal_rank <=3
-
--- Department, Employee,
--- DENSE_RANK() OVER(PARTITION BY Department ORDER BY salary)
