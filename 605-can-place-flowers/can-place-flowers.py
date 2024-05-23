@@ -1,7 +1,7 @@
 class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
 
-        if not n : return True
+        #if not n : return True
 
         count =0
         for i in range(0, len(flowerbed)):
@@ -24,7 +24,7 @@ class Solution:
                     if flowerbed[i-1] == 0 and flowerbed[i+1] == 0:
                         flowerbed[i] = 1
                         count+=1
-            if count == n:
+            if count >= n:
                 return True
         
         return False
