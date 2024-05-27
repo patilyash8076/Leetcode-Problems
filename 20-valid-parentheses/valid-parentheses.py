@@ -11,14 +11,11 @@ class Solution:
                 stack.pop()
             elif stack and stack[-1] == '{' and i == '}':
                 stack.pop()
-            elif i in [')', ']', '}']:
+            else:  #checking if first bracket is closing i.e. (')', ']', '}') then it will return False
                 return False
-
 
         if len(stack) == 0:
             return True
-        else:
-            return False
   
 
                     
