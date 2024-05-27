@@ -15,10 +15,10 @@ class Solution:
                 return False
 
 
-        if len(stack) > 0:
-            return False
-        else:
+        if len(stack) == 0:
             return True
+        else:
+            return False
   
 
                     
