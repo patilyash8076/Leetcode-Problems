@@ -11,10 +11,13 @@ class Solution:
                 stack.pop()
             elif stack and stack[-1] == '{' and i == '}':
                 stack.pop()
-            else:
+            elif i in [')', ']', '}']:
                 return False
-        print(stack)
-        if len(stack) == 0:
+
+
+        if len(stack) > 0:
+            return False
+        else:
             return True
   
 
