@@ -1,19 +1,25 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
-        
-        min_price = float('inf')  # Initialize min_price to infinity
-        max_profit = 0  # Initialize max_profit to zero
 
+        min_price = prices[0]
+        max_profit = 0
         for price in prices:
             if price < min_price:
-                min_price = price  # Update the minimum price encountered
+                min_price = price
             else:
-                profit = price - min_price  # Calculate profit if sold today
-                if profit > max_profit:
-                    max_profit = profit  # Update the max_profit if the current profit is higher
-
+                diff = price - min_price
+                if diff > max_profit:
+                    max_profit = diff
         return max_profit
+        # max_profit = 0
+        # for i in range(len(prices)-1):          #[7 1 5 3 6]
+        #     for j in range(i+1, len(prices)):   #[1 5 3 6 4]
+        #         if prices[i] > prices[j]:
+        #             break
+        #         else:
+        #           diff = abs(prices[i] - prices[j])
+        #           if diff > max_profit:
+        #             max_profit = diff
+        # return max_profit
 
                 
