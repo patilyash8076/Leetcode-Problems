@@ -11,8 +11,8 @@ class Solution:
             num_dict[i] = 1 
 
         # 2nd approch using set
-        hashset = set()
-        for i in nums:
-            if i in hashset:
-                return True
-            hashset.add(i)
+        # hashset = set()
+        # for i in nums:
+        #     if i in hashset:
+        #         return True
+        #     hashset.add(i)
