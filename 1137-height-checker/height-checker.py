@@ -10,4 +10,3 @@ class Solution:
             he_ptr += 1
             ex_ptr += 1
         return count
-        
