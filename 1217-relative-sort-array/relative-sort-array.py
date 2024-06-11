@@ -3,7 +3,6 @@ class Solution:
         arr1_dict = {}
         arr2_dict = {}
         li = []
-        sort_list =[]
         li2 = []
         for i, num in enumerate(arr2):
             arr2_dict[num] = i
