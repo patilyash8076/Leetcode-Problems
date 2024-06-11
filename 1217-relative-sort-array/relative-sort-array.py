@@ -18,6 +18,5 @@ class Solution:
             if i not in arr2:
                 li2.append(i)
         sort_list = sorted(li2)
-        for i in sort_list:
-            li.append(i)
+        li.extend(sort_list)
         return li
