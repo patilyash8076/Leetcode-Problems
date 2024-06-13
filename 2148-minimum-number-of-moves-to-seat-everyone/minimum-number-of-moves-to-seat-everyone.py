@@ -7,7 +7,6 @@ class Solution:
         print(stu_sorted)
         for i in range(len(seats)):
             temp += abs(stu_sorted[i] - seats_sorted[i])
-            # temp += temp
         return temp
 
 
