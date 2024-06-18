@@ -1,20 +1,3 @@
-# class Solution:
-#     def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
-#         max_profit = []   
-#         dif_pro_dict = dict(zip(difficulty, profit))
-#         for work in range(len(worker)):
-#             if worker[work] < min(difficulty):
-#                 max_profit.append(0)
-#             else:
-#                 max_work = []
-#                 for i in difficulty:
-#                     if i <= worker[work]:
-#                         max_work.append(dif_pro_dict[i])
-#                 print(max_work)
-#                 max_profit.append(max(max_work))
-#         print(max_profit)
-#         return sum(max_profit)
-
 class Solution:
     def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
         # Combine difficulty and profit, then sort by difficulty
@@ -35,3 +18,29 @@ class Solution:
             total_profit += max_profit
 
         return total_profit
+
+
+# Below Code is giving timelimit exceeded error
+
+# class Solution:
+#     def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
+#         max_profit = []   
+#         # dif_pro_dict = dict(zip(difficulty, profit))
+#         dif_pro_dict = {}
+#         temp = 0
+#         for d, p in zip(difficulty, profit):
+#             if d in dif_pro_dict:
+#                 dif_pro_dict[d] = max(dif_pro_dict[d], p)
+#             else:
+#                 dif_pro_dict[d] = p
+#         for work in range(len(worker)):
+#             if worker[work] < min(difficulty):
+#                 temp += 0 
+#             else:
+#                 max_work = []
+#                 for i in difficulty:
+#                     if i <= worker[work]:
+#                         max_work.append(dif_pro_dict[i])
+#                 temp += max(max_work)
+#         return temp
+
