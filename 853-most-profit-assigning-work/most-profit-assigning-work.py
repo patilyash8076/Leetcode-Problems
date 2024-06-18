@@ -14,37 +14,24 @@
 #                 max_profit.append(max(max_work))
 #         print(max_profit)
 #         return sum(max_profit)
+
 class Solution:
-    def maxProfitAssignment(
-        self, difficulty: List[int], profit: List[int], worker: List[int]
-    ) -> int:
-        job_profile = [(0, 0)]
-        for i in range(len(difficulty)):
-            job_profile.append((difficulty[i], profit[i]))
-        # Sort by difficulty values in increasing order.
+    def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
+        # Combine difficulty and profit, then sort by difficulty
+        jobs = sorted(zip(difficulty, profit))
+        # Sort workers
+        worker.sort()
 
-        job_profile.sort()
-        for i in range(len(job_profile) - 1):
-            job_profile[i + 1] = (
-                job_profile[i + 1][0],
-                max(job_profile[i][1], job_profile[i + 1][1]),
-            )
-        net_profit = 0
-        for i in range(len(worker)):
-            ability = worker[i]
+        max_profit = 0
+        total_profit = 0
+        job_index = 0
 
-            # Find the job with just smaller or equal difficulty than ability.
+        for ability in worker:
+            # While the worker can do the job, update the max_profit
+            while job_index < len(jobs) and ability >= jobs[job_index][0]:
+                max_profit = max(max_profit, jobs[job_index][1])
+                job_index += 1
+            # Add the best profit this worker can achieve
+            total_profit += max_profit
 
-            l, r = 0, len(job_profile) - 1
-            job_profit = 0
-            while l <= r:
-                mid = (l + r) // 2
-                if job_profile[mid][0] <= ability:
-                    job_profit = max(job_profit, job_profile[mid][1])
-                    l = mid + 1
-                else:
-                    r = mid - 1
-            # Increment profit of current worker to total profit.
-
-            net_profit += job_profit
-        return net_profit       
+        return total_profit
